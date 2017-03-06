@@ -1,20 +1,24 @@
-package com.nacode.signup.activities;
+package com.nacode.measuring.activities;
 
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.nacode.signup.R;
-import com.nacode.signup.utils.Easing;
+import com.nacode.measuring.R;
+import com.nacode.measuring.analytics.ga.TagManager;
+import com.nacode.measuring.analytics.models.EventModel;
+import com.nacode.measuring.helpers.Easing;
+import com.nacode.measuring.helpers.Utils;
 
-public class SignUp extends BaseActivity {
+public class SignUpActivity extends BaseActivity {
 
-    public static final String LOG_TAG = SignUp.class.getSimpleName();
+    public static final String LOG_TAG = SignUpActivity.class.getSimpleName();
 
 //    region Views
     EditText username, email, password;
@@ -28,6 +32,8 @@ public class SignUp extends BaseActivity {
 
         ease(ll_button, 1000, 700);
         ease(ll_bottom, 1200, 1100);
+
+        TagManager.logScreenName(getString(R.string.sign_up));
 
     }
 
@@ -51,6 +57,9 @@ public class SignUp extends BaseActivity {
         switch (v.getId()) {
             case R.id.iv_back:
                 finish();
+                break;
+            case R.id.btn_sign_up:
+                signUp();
                 break;
             default:
                 Log.d(LOG_TAG, "non click action");
@@ -76,6 +85,34 @@ public class SignUp extends BaseActivity {
         animatorSet.playTogether(valueAnimatorY);
         animatorSet.setDuration(animatorDuration);
         animatorSet.start();
+    }
+
+    private void signUp() {
+
+        String emailText = email.getText().toString();
+        String usernameText = username.getText().toString();
+        String passwordText = password.getText().toString();
+
+        if (!Utils.isValidEmail(emailText)) {
+            Snackbar.make(email, getString(R.string.error_email), Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!Utils.isValidNamePattern(usernameText)) {
+            Snackbar.make(email, getString(R.string.error_username), Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!Utils.isValidPassword(passwordText)) {
+            Snackbar.make(password, getString(R.string.error_email), Snackbar.LENGTH_LONG).show();
+            return;
+        }
+
+        TagManager.logEventSignUp(EventModel.newInstance()
+                .setEventCategory("Interactions")
+                .setEventAction("Authentications")
+                .setEventLabel("Sign_Up"));
+
     }
 
 }

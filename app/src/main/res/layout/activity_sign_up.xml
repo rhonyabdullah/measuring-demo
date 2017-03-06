@@ -4,7 +4,7 @@
     android:id="@+id/activity_sign_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nacode.signup.activities.SignUp">
+    tools:context="com.nacode.measuring.activities.SignUpActivity">
 
     <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/image"
@@ -16,7 +16,7 @@
         android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/space20"
+        android:layout_marginStart="@dimen/space20"
         android:layout_marginTop="@dimen/space40"
         android:onClick="onClick"
         android:src="@drawable/ic_action_back" />
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Already have an account? "
+            android:text="@string/already_text"
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt14"
             android:textStyle="normal" />
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Sign in"
+            android:text="@string/sign_in"
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt14"
             android:textStyle="bold" />
@@ -66,10 +66,9 @@
             android:id="@+id/tv_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iv_back"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/space40"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt22" />
 
@@ -85,7 +84,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/space5"
-                android:text="USERNAME"
+                android:text="@string/username"
+                android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/txt10" />
 
@@ -95,6 +95,8 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:hint="@string/username"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
                 android:lines="1"
                 android:paddingBottom="@dimen/vertical_padding_default"
                 android:paddingTop="@dimen/vertical_padding_default"
@@ -115,7 +117,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/space5"
-                android:text="EMAIL"
+                android:text="@string/email"
+                android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/txt10" />
 
@@ -125,6 +128,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:hint="@string/email"
+                android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
                 android:lines="1"
                 android:paddingBottom="@dimen/vertical_padding_default"
@@ -146,7 +150,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/space5"
-                android:text="PASSWORD"
+                android:text="@string/password"
+                android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/txt10" />
 
@@ -156,6 +161,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:hint="@string/password"
+                android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:lines="1"
                 android:paddingBottom="@dimen/vertical_padding_default"
@@ -177,7 +183,7 @@
                 android:layout_height="@dimen/btn_height"
                 android:layout_marginBottom="@dimen/space20"
                 android:background="@drawable/btn_white_selector"
-                android:text="Sign Up"
+                android:text="@string/sign_up"
                 android:textAllCaps="false"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/txt16" />
@@ -186,7 +192,7 @@
                 android:layout_width="@dimen/btn_width"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="By creating an account you agree to our Terms &amp; Conditions and Privacy Policy"
+                android:text="@string/tnc"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/txt14"
                 android:textStyle="normal" />

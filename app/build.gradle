@@ -1,27 +1,54 @@
 apply plugin: 'com.android.application'
+apply from: 'constant.gradle'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.dytstudio.signup"
-        minSdkVersion 16
+
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        resConfigs "id", "en"
     }
+
     buildTypes {
         release {
+            shrinkResources true
+            minifyEnabled true
             debuggable false
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            jniDebuggable false
+            renderscriptDebuggable false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            ext.enableCrashlytics = true
+            aaptOptions {
+                cruncherEnabled true
+            }
+            defaultConfig {
+                minSdkVersion 19
+            }
+        }
+        debug {
+            ext.enableCrashlytics = false
+            aaptOptions {
+                cruncherEnabled false
+            }
+            defaultConfig {
+                minSdkVersion 21
+            }
         }
     }
-}
 
-ext {
-    supportLibraryVersion = '25.2.0'
+    dexOptions {
+        javaMaxHeapSize "2g"
+        maxProcessCount 8
+        preDexLibraries true
+    }
 }
 
 dependencies {
@@ -33,5 +60,6 @@ dependencies {
     compile "com.android.support:appcompat-v7:$supportLibraryVersion"
     compile "com.android.support:support-v4:$supportLibraryVersion"
     compile "com.android.support:design:$supportLibraryVersion"
+    compile "com.google.android.gms:play-services-analytics:$googleServicesVersion"
     compile 'com.flaviofaria:kenburnsview:1.0.7'
 }

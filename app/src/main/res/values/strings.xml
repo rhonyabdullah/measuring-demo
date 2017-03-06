@@ -7,4 +7,16 @@
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+
+    <!--Error prompt-->
+    <string name="error_email">Wrong email format !</string>
+    <string name="error_username">Wrong username format !</string>
+    <string name="error_password">Wrong password input !</string>
+
+    <!--Screen Names-->
+    <string name="scr_welcome">Welcome</string>
+    <string name="sign_in">Sign in</string>
+    <string name="already_text">Already have an account?</string>
+    <string name="tnc"><![CDATA[By creating an account you agree to our Terms & Conditions and Privacy Policy]]></string>
+
 </resources>

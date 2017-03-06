@@ -1,4 +1,4 @@
-package com.nacode.signup;
+package com.nacode.measuring;
 
 import org.junit.Test;
 

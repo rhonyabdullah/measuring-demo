@@ -15,14 +15,8 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 ### Android template
 # Built application files
-*.apk
-
 # Files for the ART/Dalvik VM
-*.dex
-
 # Java class files
-*.class
-
 # Generated files
 bin/
 gen/

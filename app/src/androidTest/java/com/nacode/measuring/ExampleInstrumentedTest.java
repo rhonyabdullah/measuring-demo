@@ -1,4 +1,4 @@
-package com.nacode.signup;
+package com.nacode.measuring;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

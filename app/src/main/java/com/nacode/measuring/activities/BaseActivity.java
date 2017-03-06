@@ -1,4 +1,4 @@
-package com.nacode.signup.activities;
+package com.nacode.measuring.activities;
 
 import android.graphics.Color;
 import android.os.Build;

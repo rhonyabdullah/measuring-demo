@@ -1,0 +1,10 @@
+ext {
+    supportLibraryVersion = '25.2.0'
+    googleServicesVersion = "10.2.0"
+}
+
+android {
+    buildTypes.each {
+        it.buildConfigField 'String', 'GTM_ID', GTM_ID
+    }
+}
