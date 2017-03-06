@@ -1,4 +1,4 @@
-package com.dytstudio.signup;
+package com.nacode.signup.utils;
 
 import android.animation.TypeEvaluator;
 
@@ -8,7 +8,7 @@ import android.animation.TypeEvaluator;
 
 public class Easing implements TypeEvaluator<Number> {
 
-    float duration;
+    private float duration;
 
     public Easing(float duration) {
         this.duration = duration;
@@ -28,8 +28,7 @@ public class Easing implements TypeEvaluator<Number> {
         float b = startValue.floatValue();
         float c = endValue.floatValue() - startValue.floatValue();
         float d = duration;
-        float result = calculate(t,b,c,d);
-        return result;
+        return calculate(t,b,c,d);
     }
     /**
      *
@@ -39,7 +38,7 @@ public class Easing implements TypeEvaluator<Number> {
      * @param d - Duration
      * @return value calculated for cubic ease-in-out
      */
-    public float calculate(float t, float b, float c, float d){
+    private float calculate(float t, float b, float c, float d){
         t /= d/2;
         if (t < 1) {
             return c/2*t*t*t + b;

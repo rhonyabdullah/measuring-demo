@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">SignUp</string>
-
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="app_name">Measuring Demo</string>
+    <string name="main_title">Measuring User In App Interactions With Analytic Tools</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log In</string>
+    <string name="demo_application">Demo application</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 </resources>

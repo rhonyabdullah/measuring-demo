@@ -1,4 +1,4 @@
-package com.dytstudio.signup;
+package com.nacode.signup;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

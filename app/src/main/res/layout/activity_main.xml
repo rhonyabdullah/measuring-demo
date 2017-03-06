@@ -1,66 +1,75 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dytstudio.signup.MainActivity">
+    android:orientation="vertical"
+    tools:context="com.nacode.signup.activities.MainActivity">
+
     <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/bg" />
+
     <ImageView
         android:id="@+id/iv_logo"
         android:layout_width="77.87dp"
         android:layout_height="77dp"
-        android:src="@drawable/logo"
+        android:layout_marginLeft="@dimen/space40"
+        android:layout_marginStart="@dimen/space40"
         android:layout_marginTop="@dimen/btn_height"
-        android:layout_marginLeft="@dimen/space40"/>
+        android:src="@drawable/logo" />
+
     <LinearLayout
         android:id="@+id/ll_bottom"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="@dimen/space20"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/space20">
+
         <Button
             android:id="@+id/btn_sign_up"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:text="Sign Up"
-            android:textAllCaps="false"
-            android:textSize="@dimen/txt16"
-            android:textColor="@color/colorPrimary"
+            android:layout_marginBottom="@dimen/space20"
             android:background="@drawable/btn_white_selector"
-            android:layout_marginBottom="@dimen/space20"/>
+            android:onClick="onClick"
+            android:text="@string/sign_up"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/txt16" />
+
         <Button
             android:id="@+id/btn_sign_in"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:text="Log In"
-            android:textAllCaps="false"
-            android:textSize="@dimen/txt16"
-            android:textColor="@android:color/white"
+            android:layout_marginBottom="@dimen/space20"
             android:background="@drawable/bg_btn_purple"
-            android:layout_marginBottom="@dimen/space20"/>
+            android:text="@string/log_in"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/txt16" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="See a demo of the app"
-            android:textSize="@dimen/txt14"
-            android:textStyle="normal"
+            android:gravity="center_horizontal"
+            android:text="@string/demo_application"
             android:textColor="@android:color/white"
-            android:gravity="center_horizontal"/>
+            android:textSize="@dimen/txt14"
+            android:textStyle="normal" />
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_logo"
         android:layout_above="@id/ll_bottom"
+        android:layout_below="@id/iv_logo"
         android:layout_margin="@dimen/space40"
-        android:text="Measure your success across all channels"
+        android:text="@string/main_title"
+        android:textColor="@android:color/white"
         android:textSize="@dimen/txt30"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"/>
+        android:textStyle="bold" />
 </RelativeLayout>
