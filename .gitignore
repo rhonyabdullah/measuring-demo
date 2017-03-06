@@ -11,12 +11,6 @@ gradle-app.setting
 # Cache of project
 .gradletasknamecache
 
-# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
-# gradle/wrapper/gradle-wrapper.properties
-### Android template
-# Built application files
-# Files for the ART/Dalvik VM
-# Java class files
 # Generated files
 bin/
 gen/
