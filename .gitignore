@@ -52,4 +52,5 @@ freeline/
 freeline_project_description.json
 /.idea/
 /gradle/wrapper/
-/gradle.properties
+gradle.properties
+gtm_default
