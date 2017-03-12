@@ -4,7 +4,6 @@ package com.nacode.measuring.analytics.ga;
  * Project Sign-Up.
  * <p>
  * Created by Rhony Abdullah Siagian on 3/6/17.
- * for PT. Sumber Trijaya Lestari.
  */
 class GtmUtils {
 

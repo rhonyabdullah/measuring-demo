@@ -183,6 +183,7 @@
                 android:layout_height="@dimen/btn_height"
                 android:layout_marginBottom="@dimen/space20"
                 android:background="@drawable/btn_white_selector"
+                android:onClick="onClick"
                 android:text="@string/sign_up"
                 android:textAllCaps="false"
                 android:textColor="@color/colorPrimary"

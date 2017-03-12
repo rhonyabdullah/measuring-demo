@@ -5,13 +5,12 @@ import android.util.Log;
 
 import com.google.android.gms.tagmanager.DataLayer;
 import com.nacode.measuring.Measuring;
-import com.nacode.measuring.analytics.models.EventModel;
+import com.nacode.measuring.analytics.models.Event;
 
 /**
- * Project Sign-Up.
+ * Project measuring-demo.
  * <p>
- * Created by Rhony Abdullah Siagian on 3/4/17.
- * for PT. Sumber Trijaya Lestari.
+ * Created by Rhony Abdullah Siagian on 3/12/17.
  */
 public class TagManager extends GtmUtils {
 
@@ -41,16 +40,17 @@ public class TagManager extends GtmUtils {
 
     }
 
-    public static void logEventSignUp(@NonNull EventModel eventModel) {
+    public static void logEventSignedUp(@NonNull Event event) {
 
         dataLayer().pushEvent(Events.signedUp,
                 DataLayer.mapOf(
-                        Variables.eventCategory, eventModel.getEventCategory(),
-                        Variables.eventAction, eventModel.getEventAction(),
-                        Variables.eventLabel, eventModel.getEventLabel()
+                        Variables.eventCategory, event.getEventCategory(),
+                        Variables.eventAction, event.getEventAction(),
+                        Variables.eventLabel, event.getEventLabel(),
+                        Variables.eventValue, event.getEventValue()
                 ));
 
-        Log.d(LOG_TAG, "logEventSignUp with action "+ eventModel.getEventAction());
+        Log.d(LOG_TAG, "logEventSignedUp with action "+ event.getEventAction());
 
         resetDataLayer();
     }

@@ -13,14 +13,17 @@ public class WelcomeActivity extends BaseActivity {
 
     public static final String LOG_TAG = WelcomeActivity.class.getSimpleName();
 
+    public static WelcomeActivity instance;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TagManager.logScreenName(getString(R.string.scr_welcome));
+        instance = this;
     }
 
     @Override
-    protected int getLayout() {
+    protected int setContentView() {
         return R.layout.activity_main;
     }
 

@@ -3,10 +3,9 @@ package com.nacode.measuring.analytics.ga;
 import com.google.android.gms.tagmanager.ContainerHolder;
 
 /**
- * Project Sign-Up.
+ * Project measuring-demo.
  * <p>
- * Created by Rhony Abdullah Siagian on 3/6/17.
- * for PT. Sumber Trijaya Lestari.
+ * Created by Rhony Abdullah Siagian on 3/12/17.
  */
 public class ContainerHolderSingleton {
 

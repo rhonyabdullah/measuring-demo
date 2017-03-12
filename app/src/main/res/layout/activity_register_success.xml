@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register_success"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="onClick"
+    tools:context="com.nacode.measuring.activities.RegisterSuccessActivity">
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_successfully"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/txt22" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/space20"
+            android:layout_marginTop="@dimen/space40"
+            android:background="@android:color/transparent"
+            android:onClick="onClick"
+            app:srcCompat="@drawable/touch_app" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/touch_to_continue"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>

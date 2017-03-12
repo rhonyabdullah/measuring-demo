@@ -7,7 +7,6 @@ import android.util.Patterns;
  * Project Sign-Up.
  * <p>
  * Created by Rhony Abdullah Siagian on 3/6/17.
- * for PT. Sumber Trijaya Lestari.
  */
 public class Utils {
 

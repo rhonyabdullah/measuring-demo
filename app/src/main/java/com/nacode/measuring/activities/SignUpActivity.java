@@ -2,17 +2,18 @@ package com.nacode.measuring.activities;
 
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.nacode.measuring.R;
 import com.nacode.measuring.analytics.ga.TagManager;
-import com.nacode.measuring.analytics.models.EventModel;
+import com.nacode.measuring.analytics.models.Event;
 import com.nacode.measuring.helpers.Easing;
 import com.nacode.measuring.helpers.Utils;
 
@@ -24,6 +25,7 @@ public class SignUpActivity extends BaseActivity {
     EditText username, email, password;
     ImageView iv_back;
     LinearLayout ll_button, ll_bottom;
+    RelativeLayout activitySignUp;
 //    endregion
 
     @Override
@@ -33,12 +35,12 @@ public class SignUpActivity extends BaseActivity {
         ease(ll_button, 1000, 700);
         ease(ll_bottom, 1200, 1100);
 
-        TagManager.logScreenName(getString(R.string.sign_up));
+        TagManager.logScreenName(getString(R.string.scr_sign_up));
 
     }
 
     @Override
-    protected int getLayout() {
+    protected int setContentView() {
         return R.layout.activity_sign_up;
     }
 
@@ -50,6 +52,7 @@ public class SignUpActivity extends BaseActivity {
         ll_button = (LinearLayout) findViewById(R.id.ll_button);
         ll_bottom = (LinearLayout) findViewById(R.id.ll_bottom);
         iv_back = (ImageView) findViewById(R.id.iv_back);
+        activitySignUp = (RelativeLayout) findViewById(R.id.activity_sign_up);
     }
 
     @Override
@@ -93,25 +96,36 @@ public class SignUpActivity extends BaseActivity {
         String usernameText = username.getText().toString();
         String passwordText = password.getText().toString();
 
+        if (emailText.isEmpty() || usernameText.isEmpty() || passwordText.isEmpty()) {
+            showSnackBar(activitySignUp, getString(R.string.required_fields));
+            return;
+        }
+
         if (!Utils.isValidEmail(emailText)) {
-            Snackbar.make(email, getString(R.string.error_email), Snackbar.LENGTH_SHORT).show();
+            showSnackBar(email, getString(R.string.error_email));
             return;
         }
 
         if (!Utils.isValidNamePattern(usernameText)) {
-            Snackbar.make(email, getString(R.string.error_username), Snackbar.LENGTH_SHORT).show();
+            showSnackBar(email, getString(R.string.error_username));
             return;
         }
 
         if (!Utils.isValidPassword(passwordText)) {
-            Snackbar.make(password, getString(R.string.error_email), Snackbar.LENGTH_LONG).show();
+            showSnackBar(password, getString(R.string.error_email));
             return;
         }
 
-        TagManager.logEventSignUp(EventModel.newInstance()
+        TagManager.logEventSignedUp(Event.newInstance()
                 .setEventCategory("Interactions")
                 .setEventAction("Authentications")
-                .setEventLabel("Sign_Up"));
+                .setEventLabel("Sign_Up")
+                .setEventValue(1));
+
+
+        startActivity(new Intent(this, RegisterSuccessActivity.class));
+        WelcomeActivity.instance.finish();
+        finish();
 
     }
 

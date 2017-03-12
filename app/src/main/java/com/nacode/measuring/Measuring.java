@@ -17,7 +17,6 @@ import java.util.concurrent.TimeUnit;
  * Project Sign-Up.
  * <p>
  * Created by Rhony Abdullah Siagian on 3/6/17.
- * for PT. Sumber Trijaya Lestari.
  */
 public class Measuring extends Application {
 
@@ -38,6 +37,7 @@ public class Measuring extends Application {
         GoogleAnalytics.getInstance(instance).setLocalDispatchPeriod(15);
 
         final TagManager tagManager = TagManager.getInstance(instance);
+        tagManager.setVerboseLoggingEnabled(BuildConfig.DEBUG);
         tagManager.loadContainerPreferFresh(BuildConfig.GTM_ID, R.raw.gtm_default)
                 .setResultCallback(new ResultCallback<ContainerHolder>() {
                     @Override
