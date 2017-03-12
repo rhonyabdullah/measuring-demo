@@ -96,18 +96,18 @@ public class SignUpActivity extends BaseActivity {
         String usernameText = username.getText().toString();
         String passwordText = password.getText().toString();
 
-        if (emailText.isEmpty() || usernameText.isEmpty() || passwordText.isEmpty()) {
+        if (usernameText.isEmpty() || emailText.isEmpty() || passwordText.isEmpty()) {
             showSnackBar(activitySignUp, getString(R.string.required_fields));
-            return;
-        }
-
-        if (!Utils.isValidEmail(emailText)) {
-            showSnackBar(email, getString(R.string.error_email));
             return;
         }
 
         if (!Utils.isValidNamePattern(usernameText)) {
             showSnackBar(email, getString(R.string.error_username));
+            return;
+        }
+
+        if (!Utils.isValidEmail(emailText)) {
+            showSnackBar(email, getString(R.string.error_email));
             return;
         }
 

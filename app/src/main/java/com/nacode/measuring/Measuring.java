@@ -34,7 +34,7 @@ public class Measuring extends Application {
 
     private static void initTagManager(Measuring instance) {
         // Set the dispatch period in seconds.
-        GoogleAnalytics.getInstance(instance).setLocalDispatchPeriod(15);
+        GoogleAnalytics.getInstance(instance).setLocalDispatchPeriod(5);
 
         final TagManager tagManager = TagManager.getInstance(instance);
         tagManager.setVerboseLoggingEnabled(BuildConfig.DEBUG);

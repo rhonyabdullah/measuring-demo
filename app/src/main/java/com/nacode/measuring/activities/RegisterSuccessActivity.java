@@ -1,7 +1,6 @@
 package com.nacode.measuring.activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.nacode.measuring.R;
@@ -34,12 +33,8 @@ public class RegisterSuccessActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.activity_register_success:
-//                todo, launch to home activity
-                finish();
-                break;
             default:
-                Log.d(LOG_TAG, "non click action");
+                finish();
         }
     }
 }

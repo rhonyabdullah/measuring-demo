@@ -10,7 +10,7 @@ public class Event {
     private String eventCategory;
     private String eventAction;
     private String eventLabel;
-    private double eventValue;
+    private int eventValue;
 
     public static Event newInstance() {
         return new Event();
@@ -31,7 +31,7 @@ public class Event {
         return this;
     }
 
-    public Event setEventValue(double value) {
+    public Event setEventValue(int value) {
         this.eventValue = value;
         return this;
     }
@@ -48,7 +48,7 @@ public class Event {
         return eventLabel;
     }
 
-    public double getEventValue() {
-        return eventValue;
+    public String getEventValue() {
+        return String.valueOf(eventValue);
     }
 }
