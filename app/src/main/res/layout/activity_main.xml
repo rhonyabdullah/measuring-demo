@@ -47,6 +47,7 @@
             android:layout_height="@dimen/btn_height"
             android:layout_marginBottom="@dimen/space20"
             android:background="@drawable/bg_btn_purple"
+            android:onClick="onClick"
             android:text="@string/log_in"
             android:textAllCaps="false"
             android:textColor="@android:color/white"

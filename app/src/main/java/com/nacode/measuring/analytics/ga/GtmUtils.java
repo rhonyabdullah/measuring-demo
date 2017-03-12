@@ -19,6 +19,7 @@ class GtmUtils {
     static final class Events {
         static final String openScreen = "openScreen";
         static final String signedUp = "signedUp";
+        static final String login = "login";
     }
 
 }

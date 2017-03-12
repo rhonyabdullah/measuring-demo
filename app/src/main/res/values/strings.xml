@@ -3,7 +3,7 @@
     <!--Screen Names-->
     <string name="scr_welcome">Welcome</string>
     <string name="scr_sign_up">Sign Up</string>
-    <string name="scr_sign_in">Sign In</string>
+    <string name="scr_log_in">Log In</string>
     <string name="scr_register">Register Success</string>
 
     <!--Error prompt-->
@@ -25,5 +25,6 @@
     <string name="register_successfully">Register Successfully</string>
     <string name="touch_to_continue">Touch to continue</string>
     <string name="required_fields">Required Fields !</string>
+    <string name="forgot_pwd">Forgot Password ?</string>
 
 </resources>

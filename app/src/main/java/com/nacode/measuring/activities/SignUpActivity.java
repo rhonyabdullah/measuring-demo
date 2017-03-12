@@ -92,9 +92,9 @@ public class SignUpActivity extends BaseActivity {
 
     private void signUp() {
 
-        String emailText = email.getText().toString();
-        String usernameText = username.getText().toString();
-        String passwordText = password.getText().toString();
+        String emailText = email.getText().toString().trim();
+        String usernameText = username.getText().toString().trim();
+        String passwordText = password.getText().toString().trim();
 
         if (usernameText.isEmpty() || emailText.isEmpty() || passwordText.isEmpty()) {
             showSnackBar(activitySignUp, getString(R.string.required_fields));

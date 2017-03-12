@@ -18,20 +18,20 @@ public class TagManager extends GtmUtils {
 
     private static final String[] dataLayerTypes =
             {
-                    GtmUtils.Variables.ecommerce,
-                    GtmUtils.Variables.screenName,
-                    GtmUtils.Variables.eventCategory,
-                    GtmUtils.Variables.eventAction,
-                    GtmUtils.Variables.eventLabel,
-                    GtmUtils.Variables.eventValue
+                    Variables.ecommerce,
+                    Variables.screenName,
+                    Variables.eventCategory,
+                    Variables.eventAction,
+                    Variables.eventLabel,
+                    Variables.eventValue
             };
 
     public static void logScreenName(@NonNull String screenName) {
 
-        dataLayer().pushEvent(GtmUtils.Events.openScreen,
+        dataLayer().pushEvent(Events.openScreen,
                 DataLayer.mapOf
                         (
-                                GtmUtils.Variables.screenName, screenName
+                                Variables.screenName, screenName
                         ));
 
         Log.d(LOG_TAG, "logScreenName " + screenName);
@@ -51,6 +51,20 @@ public class TagManager extends GtmUtils {
                 ));
 
         Log.d(LOG_TAG, "logEventSignedUp with action "+ event.getEventAction());
+
+        resetDataLayer();
+    }
+
+    public static void logEventLogin(@NonNull Event event) {
+        dataLayer().pushEvent(Events.login,
+                DataLayer.mapOf(
+                        Variables.eventCategory, event.getEventCategory(),
+                        Variables.eventAction, event.getEventAction(),
+                        Variables.eventLabel, event.getEventLabel(),
+                        Variables.eventValue, event.getEventValue()
+                ));
+
+        Log.d(LOG_TAG, "logEventLogin with action "+ event.getEventAction());
 
         resetDataLayer();
     }

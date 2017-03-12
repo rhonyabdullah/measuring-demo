@@ -38,6 +38,9 @@ public class WelcomeActivity extends BaseActivity {
             case R.id.btn_sign_up:
                 startActivity(new Intent(this, SignUpActivity.class));
                 break;
+            case R.id.btn_sign_in:
+                startActivity(new Intent(this, LoginActivity.class));
+                break;
             default:
                 Log.d(LOG_TAG, "non click action");
         }
