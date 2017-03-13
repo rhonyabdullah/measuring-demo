@@ -11,12 +11,16 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import io.realm.RealmAsyncTask;
+
 /**
  * Project measuring-demo.
  * <p>
  * Created by Rhony Abdullah Siagian on 3/12/17.
  */
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+
+    protected RealmAsyncTask transaction;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,6 +34,14 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         changeStatusBarColor();
 
         viewsBinding();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (transaction != null && !transaction.isCancelled()) {
+            transaction.cancel();
+        }
     }
 
     protected static void showSnackBar(@NonNull View view, @NonNull String msg) {

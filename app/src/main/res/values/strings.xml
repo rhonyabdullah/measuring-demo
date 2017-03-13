@@ -10,6 +10,7 @@
     <string name="error_email">Wrong email format !</string>
     <string name="error_username">Wrong username format !</string>
     <string name="error_password">Wrong password input !</string>
+    <string name="error_user_reg">Fail to register user !</string>
 
     <string name="app_name">Measuring Demo</string>
     <string name="main_title">Measuring User In App Interactions With Analytic Tools</string>
@@ -26,5 +27,6 @@
     <string name="touch_to_continue">Touch to continue</string>
     <string name="required_fields">Required Fields !</string>
     <string name="forgot_pwd">Forgot Password ?</string>
+    <string name="error_user_not_found">User not registered !</string>
 
 </resources>

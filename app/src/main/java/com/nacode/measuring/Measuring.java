@@ -13,6 +13,9 @@ import com.nacode.measuring.analytics.ga.ContainerHolderSingleton;
 
 import java.util.concurrent.TimeUnit;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 /**
  * Project Sign-Up.
  * <p>
@@ -30,6 +33,8 @@ public class Measuring extends Application {
         super.onCreate();
         instance = this;
         initTagManager(instance);
+        Realm.init(instance);
+        Realm.setDefaultConfiguration(new RealmConfiguration.Builder().build());
     }
 
     private static void initTagManager(Measuring instance) {

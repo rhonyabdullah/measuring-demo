@@ -4,6 +4,7 @@ import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -14,10 +15,13 @@ import android.widget.RelativeLayout;
 import com.nacode.measuring.R;
 import com.nacode.measuring.analytics.ga.TagManager;
 import com.nacode.measuring.analytics.models.Event;
+import com.nacode.measuring.database.RealmDb;
+import com.nacode.measuring.database.RealmInterfaces;
 import com.nacode.measuring.helpers.Easing;
 import com.nacode.measuring.helpers.Utils;
+import com.nacode.measuring.models.User;
 
-public class SignUpActivity extends BaseActivity {
+public class SignUpActivity extends BaseActivity implements RealmInterfaces {
 
     public static final String LOG_TAG = SignUpActivity.class.getSimpleName();
 
@@ -48,7 +52,7 @@ public class SignUpActivity extends BaseActivity {
     protected void viewsBinding() {
         username = (EditText) findViewById(R.id.et_username);
         email = (EditText) findViewById(R.id.et_email);
-        password= (EditText) findViewById(R.id.et_password);
+        password = (EditText) findViewById(R.id.et_password);
         ll_button = (LinearLayout) findViewById(R.id.ll_button);
         ll_bottom = (LinearLayout) findViewById(R.id.ll_bottom);
         iv_back = (ImageView) findViewById(R.id.iv_back);
@@ -74,7 +78,7 @@ public class SignUpActivity extends BaseActivity {
         AnimatorSet animatorSet = new AnimatorSet();
         float fromY = 600;
         float toY = view.getTop();
-        ValueAnimator valueAnimatorY = ValueAnimator.ofFloat(fromY,toY);
+        ValueAnimator valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
 
         valueAnimatorY.setEvaluator(easing);
 
@@ -116,6 +120,8 @@ public class SignUpActivity extends BaseActivity {
             return;
         }
 
+        saveUser(emailText, usernameText, passwordText);
+
         TagManager.logEventSignedUp(Event.newInstance()
                 .setEventCategory("Interactions")
                 .setEventAction("Authentications")
@@ -127,6 +133,26 @@ public class SignUpActivity extends BaseActivity {
         WelcomeActivity.instance.finish();
         finish();
 
+    }
+
+    private void saveUser(@NonNull String email, @NonNull String username, @NonNull String password) {
+        transaction = RealmDb.saveRegisteredUser(
+                User.newInstance()
+                        .setEmail(email)
+                        .setUsername(username)
+                        .setPassword(password), this
+        );
+    }
+
+    @Override
+    public void onSuccessTransaction() {
+        Log.d(LOG_TAG, "Transaction executed successfully !");
+    }
+
+    @Override
+    public void onErrorTransaction(Throwable error) {
+        Log.d(LOG_TAG, error.getMessage());
+        showSnackBar(activitySignUp, getString(R.string.error_user_reg));
     }
 
 }
